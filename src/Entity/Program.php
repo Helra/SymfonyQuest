@@ -32,7 +32,7 @@ class Program
     private $poster;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\category")
+     * @ORM\ManyToOne(targetEntity="App\Entity\category", inversedBy="programs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
