@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Seasons in {{ seasons.0.program.title }}{% endblock %}
+
+{% block body %}
+    <h1>Toutes les saison étant dans {{ seasons.0.program.title }} : </h1>
+    {% for season in seasons %}
+        <div>
+            <h2>Saison {{ loop.index }} / {{ season.number }} - Année : {{ season.year }}</h2>
+            <p>{{ season.description}}</p>
+        </div>
+    {% else %}
+        Aucune saison trouvée.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

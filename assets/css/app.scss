@@ -63,3 +63,7 @@ a.dropdown-item{
     font-size: $sizeFontText;
     align-self: center;
 }
+.season {
+    display: flex;
+    flex-direction: column;
+}

@@ -10,6 +10,14 @@
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
+            {% for season in seasons %}
+                <div class="season">
+                    <h2>Saison {{ loop.index }} / {{ season.number }} - Année : {{ season.year }}</h2>
+                    <p>{{ season.description}}</p>
+                </div>
+            {% else %}
+                Aucune saison trouvée.
+            {% endfor %}
         </div>
     </div>
 
