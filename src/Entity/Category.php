@@ -23,7 +23,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category"
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category")
      */
     private $programs;
 
@@ -33,9 +33,9 @@ class Category
     }
 
     /**
-     * @return Collection|Program[]
+     * @return ArrayCollection
      */
-    public function getPrograms(): Collection
+    public function getPrograms(): ArrayCollection
     {
         return $this->programs;
     }
