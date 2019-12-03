@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,9 +30,16 @@ Class WildController extends AbstractController
             );
         }
 
+        foreach ( $programs as $program)
+        {
+            $programsUrl[] = str_replace(' ', '-', strtolower($program->getTitle()));
+        }
+
         return $this->render(
             'wild/index.html.twig',
-            ['programs' => $programs]
+            ['programs' => $programs,
+                'urls' => $programsUrl,
+                ]
         );
     }
 
@@ -111,9 +119,13 @@ Class WildController extends AbstractController
                 'No program with '.$category.' title, found in program\'s table.'
             );
         }
+
+        $programesUrl = str_replace(' ', '-', strtolower($programsInCategory));
+
         return $this->render('wild/index_category.html.twig', [
             'programs' => $programsInCategory,
             'category'  => $category,
+            'urls' => $programesUrl,
         ]);
     }
 
@@ -134,8 +146,25 @@ Class WildController extends AbstractController
             ->findBy(['program'=> $idProgram]);
 
         return $this->render('wild/index_season.html.twig', ['seasons' => $seasonInPrograms]);
+    }
 
+    /**
+     * @Route("/show/{idSeason}/episode", name="show_episode")
+     * @param int $idSeason
+     * @return Response
+     */
+    public function showEpisode(int $idSeason) : Response
+    {
+        if (!$idSeason) {
+            throw $this
+                ->createNotFoundException('No episode has been sent to find a episode in season\'s table.');
+        }
 
+        $episodesInSeason = $this->getDoctrine()
+            ->getRepository(Episode::class)
+            ->findBy(['season'=> $idSeason]);
+
+        return $this->render('wild/index_episode.html.twig', ['episodes' => $episodesInSeason]);
     }
 
 }

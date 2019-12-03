@@ -4,12 +4,12 @@
 {% block body %}
     <h1>Toutes les séries étant dans la catégorie {{ category }} : </h1>
     {% for program in programs %}
-        <a href="{{ path('show_season', { 'idProgram': {{ program.id }} }) }}">
-            <div>
-                <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-                <p>{{ program.summary }}</p>
-            </div>
-        </a>
+            <a href="{{ path('wild_show',  {'slug' : url.} ) }}">
+                <div>
+                    <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                    <p>{{ program.summary }}</p>
+                </div>
+            </a>
     {% else %}
         Aucune série trouvée.
     {% endfor %}

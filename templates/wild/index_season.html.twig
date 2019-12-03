@@ -5,7 +5,7 @@
     <h1>Toutes les saison étant dans {{ seasons.0.program.title }} : </h1>
     {% for season in seasons %}
         <div>
-            <h2>Saison {{ loop.index }} / {{ season.number }} - Année : {{ season.year }}</h2>
+            <h2>Saison {{ season.number }} - Année : {{ season.year }}</h2>
             <p>{{ season.description}}</p>
         </div>
     {% else %}
