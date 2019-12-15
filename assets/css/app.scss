@@ -1,0 +1,69 @@
+// assets/css/global.scss
+
+// customize some Bootstrap variables
+$primary: darken(#428bca, 20%);
+$primaryColor: #C1A3E4 ;
+$primaryColorDarken: #272838 ;
+$primaryColorLight: #F8F2F9 ;
+$sizeFontText: 16pt ;
+$sizeFontTitle: 32pt ;
+$sizeFontSecondaryTitle: 20pt ;
+$font-family-base : 'Permanent Marker', cursive;
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap";
+
+body {
+    background-color: $primaryColorLight;
+}
+
+h1 {
+    font-size: $sizeFontTitle;
+}
+
+.bg-dark {
+    background-color: $primaryColorDarken;
+}
+
+.navbar-dark {
+    background-color: $primaryColorDarken;
+}
+
+.navbar-dark .navbar-brand {
+    color: $primaryColor;
+    font-size: $sizeFontTitle;
+    font-family: $font-family-base;
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: lighten($primaryColor, 10%);
+}
+
+.navbar-dark .navbar-nav {
+    font-size: $sizeFontSecondaryTitle;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: $primaryColor;
+    font-family: $font-family-base;
+}
+.navbar-dark .navbar-nav .nav-link.active:hover {
+    color: lighten($primaryColor, 10%);
+}
+
+.dropdown-menu {
+    background-color: $primaryColorDarken;
+    color: $primaryColorLight;
+}
+a.dropdown-item{
+    color: $primaryColorLight;
+}
+
+.name {
+    font-size: $sizeFontText;
+    align-self: center;
+}
+.season {
+    display: flex;
+    flex-direction: column;
+}
