@@ -4,10 +4,10 @@
 {% block body %}
     <h1>Toutes les épisodes étant dans la saison : </h1>
     {% for episode in episodes %}
-        <div>
+        <a href="{{ path('show_episode',  {'id' : episode.id}) }}">
             <h2>Episode {{ episode.number }} : {{ episode.title }}</h2>
             <p>{{ episode.synopsis}}</p>
-        </div>
+        </a>
     {% else %}
         Aucune épisodes trouvés.
     {% endfor %}

@@ -1,0 +1,27 @@
+{# templates/wild/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+                <div class="season">
+                        <h2>Saison {{ season.number }} - Année : {{ season.year }}</h2>
+                        <p>{{ season.description}}</p>
+                </div>
+            <div class="season">
+                <h2>Episode {{ episode.number }} - {{ episode.title }}</h2>
+                <p>{{ episode.synopsis}}</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}
