@@ -1,9 +1,0 @@
-{% extends 'base.html.twig' %}
-{% block title %}All programs{% endblock %}
-
-{% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.name) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
-{% endblock %}

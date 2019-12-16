@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Program;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,4 +47,20 @@ class CategoryController extends AbstractController
         );
     }
 
+    /**
+     * Add an Category
+     *
+     * @Route("/", name="category_index")
+     * @param CategoryRepository $categoryRepository
+     * @return Response
+     */
+    public function indexCategory(CategoryRepository $categoryRepository):Response
+    {
+        return $this->render(
+            'category/index_category.html.twig',
+            [
+                'categories' => $categoryRepository->findAll(),
+            ]
+        );
+    }
 }
