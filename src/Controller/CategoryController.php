@@ -36,7 +36,7 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
-            return $this->redirectToRoute('wild_index');
+            return $this->redirectToRoute('category_index');
         }
 
         return $this->render(
