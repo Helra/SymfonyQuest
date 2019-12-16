@@ -3,7 +3,7 @@
 
 {% block body %}
     <h1>Toutes les séries étant dans la catégorie {{ category }} : </h1>
-    {% for program in programs %}
+
             <a href="{{ path('wild_show',  {'slug' : url.} ) }}">
                 <div>
                     <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
